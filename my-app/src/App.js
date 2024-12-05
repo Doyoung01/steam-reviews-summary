@@ -10,6 +10,8 @@ import "./App.css";
 import List from "./component/List";
 import Game from "./component/Game";
 
+const apiBaseUrl = "https://steam-reviews-summary.onrender.com";
+
 function App() {
   let [name, setName] = useState("");
   let [load, setLoad] = useState(true);
@@ -112,7 +114,7 @@ const fetchGameData = async (query, setLoad, setGame) => {
   if (query.startsWith("http")) {
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/search_game_by_link?game_url=${query}`
+        `${apiBaseUrl}/search_game_by_link?game_url=${query}`
       );
       const data = await response.json();
 
@@ -128,9 +130,7 @@ const fetchGameData = async (query, setLoad, setGame) => {
     }
   } else {
     try {
-      const response = await fetch(
-        `http://127.0.0.1:8000/search_game?query=${query}`
-      );
+      const response = await fetch(`${apiBaseUrl}/search_game?query=${query}`);
       const data = await response.json();
 
       if (response.ok) {

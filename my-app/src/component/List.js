@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
+const apiBaseUrl = "https://steam-reviews-summary.onrender.com";
+
 function List(props) {
   let nav = useNavigate();
 
@@ -61,9 +63,7 @@ const fetchReviewData = async (query, setLoad, setPos, setNeg) => {
   setLoad(true);
 
   try {
-    const response = await fetch(
-      `http://127.0.0.1:8000/reviews?app_id=${query}`
-    );
+    const response = await fetch(`${apiBaseUrl}/reviews?app_id=${query}`);
     const data = await response.json();
     if (response.ok) {
       setPos(data.positive_summary);
