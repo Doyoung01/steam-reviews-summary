@@ -66,34 +66,53 @@ function Main(props) {
           Steam Review Summary
         </h1>
       </section>
-      <div className="input-group mb-3">
-        <input
-          id="text"
-          type="text"
-          className="form-control"
-          aria-label="Recipient's username"
-          aria-describedby="button-addon2"
-          placeholder="영어 이름이나 Steam URL을 입력하세요."
-          onChange={(e) => {
-            props.setName(e.target.value);
-            console.log(props.name);
-          }}
-        />
-        <button
-          className="btn btn-outline-secondary"
-          type="button"
-          id="button-addon2"
-          name="btn"
-          onClick={() => {
-            nav("/game-list");
-            fetchGameData(props.name, props.setLoad, props.setGame);
-          }}
-        >
-          검색
-        </button>
-      </div>
-      <Outlet />
+      <img
+        src="/server-repair.png"
+        alt="maintain png"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "300px",
+          height: "auto",
+        }}
+      />
     </div>
+    // <div>
+    //   <section className="steam-section">
+    //     <h1 className="cursor-pointer" onClick={() => nav("/")}>
+    //       Steam Review Summary
+    //     </h1>
+    //   </section>
+    //   <div className="input-group mb-3">
+    //     <input
+    //       id="text"
+    //       type="text"
+    //       className="form-control"
+    //       aria-label="Recipient's username"
+    //       aria-describedby="button-addon2"
+    //       placeholder="영어 이름이나 Steam URL을 입력하세요."
+    //       onChange={(e) => {
+    //         props.setName(e.target.value);
+    //         console.log(props.name);
+    //       }}
+    //     />
+    //     <button
+    //       className="btn btn-outline-secondary"
+    //       type="button"
+    //       id="button-addon2"
+    //       name="btn"
+    //       onClick={() => {
+    //         nav("/game-list");
+    //         fetchGameData(props.name, props.setLoad, props.setGame);
+    //       }}
+    //     >
+    //       검색
+    //     </button>
+    //   </div>
+    //   <Outlet />
+    // </div>
   );
 }
 
